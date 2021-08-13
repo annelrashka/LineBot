@@ -1,3 +1,4 @@
 pylinebot
 flask
 gunicorn
+selenium
