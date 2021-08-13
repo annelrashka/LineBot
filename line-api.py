@@ -8,11 +8,13 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
+
+import backend
 # from handler import *
 
 
 def handler_function(input_message):
-    output_message = input_message
+    output_message = backend.hoax(input_message)
     return output_message
 
 
