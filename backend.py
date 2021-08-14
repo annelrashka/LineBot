@@ -1,22 +1,22 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.expected_conditions import presence_of_element_located
 
-GOOGLE_CHROME_BIN="/app/.apt/usr/bin/google-chrome"
-CHROMEDRIVER_PATH="/app/.chromedriver/bin/chromedriver"
 
-chrome_options = Options()
-chrome_options.binary_location = GOOGLE_CHROME_BIN
-chrome_options.add_argument('--disable-gpu')
-chrome_options.add_argument('--no-sandbox')
+chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--no-sandbox")
 
 searchable="fc-claim" #this is the result's class, might need revision
 
 #Requires Selenium WebDriver 3.13 or newer
 def hoax(query):
-    with webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options) as driver: #change this line according to your chromedriver location
+    with webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options) as driver: #change this line according to your chromedriver location
         wait = WebDriverWait(driver, 10)
         driver.get("https://toolbox.google.com/factcheck/explorer")
         driver.find_element(By.NAME, "query").send_keys(query + Keys.RETURN)
