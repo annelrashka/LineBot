@@ -18,7 +18,7 @@ Diciptakan oleh Kelompok 4 - Epimilis
 
 ## Cara Menggunakan
 
-Heroku settings:
+#Heroku settings:
 
 Config vars: 
 
@@ -34,7 +34,7 @@ https://github.com/heroku/heroku-buildpack-google-chrome.git
 
 
 
-Heroku deploy:
+#Heroku deploy:
 
 heroku ps:scale worker=1
 
