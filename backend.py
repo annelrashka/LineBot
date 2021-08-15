@@ -17,12 +17,7 @@ searchable="fc-claim" #this is the result's class, might need revision
 # Check Tipe Query
 def checkQuery(query):
     query = query.split(" ")
-    if query[0] == "fc":
-        return "fc"
-    # if query[0] == "setting":
-    #     return "setting"
-    # if query[0] == "status":
-    #     return "status"
+    return query[0]
 
 #Requires Selenium WebDriver 3.13 or newer
 def hoax(query):
@@ -51,6 +46,13 @@ def hoax(query):
                 ret="Query : %s\n" % query
                 ret+=("--------------------------------------------------------------\n")
                 ret+=("Search error")
+    elif checkQuery(query.lower()) == "help":
+        ret="Help\n"
+        ret+="----------\n"
+        ret+="fc <title> = to check the title's validity\n"
+        ret+="creator = to show the creators of SELEKTA\n"
+        ret+="help = to show this message\n"
+        ret+="----------\n"        
     else:
         ret="Sorry, your format is invalid :(\nUse \"help\" to show list of command"
 
