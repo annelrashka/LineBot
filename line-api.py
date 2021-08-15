@@ -42,10 +42,16 @@ def callback():
 
 @handler.add(MessageEvent)
 def check_message(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=backend.hoax(event.message.text))
-    )
+    if event.message.type == 'text':
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=backend.hoax(event.message.text))
+        )
+    else:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text='Sorry, currently we can only handle text messages.')
+        )
 
 
 @handler.add(FollowEvent)
