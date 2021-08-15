@@ -52,6 +52,6 @@ def hoax(query):
                 ret+=("--------------------------------------------------------------\n")
                 ret+=("Search error")
     else:
-        ret="Sorry, but your format is invalid :(\nUse \"fc <title>\" to fact-check"
+        ret="Sorry, your format is invalid :(\nUse \"help\" to show list of command"
 
     return ret
