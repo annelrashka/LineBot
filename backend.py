@@ -52,7 +52,20 @@ def hoax(query):
         ret+="fc <title> = to check the title's validity\n"
         ret+="creator = to show the creators of SELEKTA\n"
         ret+="help = to show this message\n"
-        ret+="----------\n"        
+        ret+="----------\n"
+    elif checkQuery(query.lower()) == "creator":
+        ret="Creator (Kelompok 4 - Epimelis)"
+        ret+="------------------------------"
+        ret+="Gresya Angelina Eunike Leman - 16520082"
+        ret+="Frederik Imanuel Louis - 16520103"
+        ret+="Andreana Hartadi Suliman - 16520113"
+        ret+="Wesly Giovano - 16520363"
+        ret+="M Syahrul Surya Putra - 16520430"
+        ret+="David Nathanio Gabriel Siahaan - 16520432"
+        ret+="Annel Rashka Perdana - 16520448"
+        ret+="Afkar Dhiya Ulhaq - 16520452"
+        ret+="Rifki Kaida - 16520496"
+       
     else:
         ret="Sorry, your format is invalid :(\nUse \"help\" to show list of command"
 
