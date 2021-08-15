@@ -33,6 +33,7 @@ def hoax(query):
             ret+=(results[i].text+"\n")
             ret+=("Article:\n")
             ret+=(str(article[i].get_attribute("href"))+"\n")
+            ret+=("Test")
         if len(claims)==0:
             ret=("Search error")
         return ret
