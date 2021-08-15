@@ -42,6 +42,8 @@ def hoax(query):
                 ret+=(results[i].text+"\n")
                 ret+=("Article:\n")
                 ret+=(str(article[i].get_attribute("href"))+"\n")
+                if i==4:
+                    break
             if len(claims)==0:
                 ret="Query : %s\n" % query
                 ret+=("--------------------------------------------------------------\n")
