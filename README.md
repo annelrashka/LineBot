@@ -18,10 +18,14 @@ Diciptakan oleh Kelompok 4 - Epimilis
 
 ## Cara Menggunakan
 
-Milestone SPARTA HMIF
+Heroku settings:
+Config vars: 
+CHROMEDRIVER_PATH=/app/.chromedriver/bin/chromedriver
+Buildpacks:
+heroku/python
+https://github.com/heroku/heroku-buildpack-chromedriver
+https://github.com/heroku/heroku-buildpack-google-chrome.git
 
-backend.py requres selenium (python) and chromedriver
-
-Selenium (pip installation): $py -m pip install selenium
-
-Chromedriver: https://chromedriver.chromium.org/
+Heroku deploy:
+heroku ps:scale worker=1
+heroku ps:scale web=1
