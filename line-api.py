@@ -6,11 +6,10 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, FollowEvent, TextSendMessage
 )
 
 import backend
-# from handler import *
 
 
 def handler_function(input_message):
@@ -47,11 +46,19 @@ def callback():
 
 
 @handler.add(MessageEvent)
-def message_text(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=handler_function(event.message.text))
-    )
+def check_message(event):
+    if event.source.type == 'user':
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=handler_function(event.message.text))
+        )
+
+
+@handler.add(FollowEvent)
+def greeting_message(event):
+    profile = line_bot_api.get_profile(event.user_id)
+    text = 'Hi ' + profile.display_name + ', silakan diisi pake teks yang bagus'
+    line_bot_api.push_message(event.user_id, TextSendMessage(text))
 
 
 if __name__ == "__main__":
