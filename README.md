@@ -17,26 +17,29 @@ Diciptakan oleh Kelompok 4 - Epimilis
 | Rifki Kaida | 16520496 | Backend Utility (Welcome Message) |
 
 ## Cara Menggunakan
-
-### Heroku settings:
+*Cara Mendeploy*
+```
+Heroku settings:
 
 Config vars: 
-
-CHROMEDRIVER_PATH=/app/.chromedriver/bin/chromedriver
-
+  CHROMEDRIVER_PATH=/app/.chromedriver/bin/chromedriver
+  
 Buildpacks:
+  heroku/python
+  https://github.com/heroku/heroku-buildpack-chromedriver
+  https://github.com/heroku/heroku-buildpack-google-chrome.git
 
-heroku/python
+Heroku deploy:
+  heroku ps:scale worker=1
+  heroku ps:scale web=1
+```
 
-https://github.com/heroku/heroku-buildpack-chromedriver
+*Cara Menggunakan Bot*
+```
+Add Bot-nya terlebih dahulu. ID Botnya ialah '@044llbzv'.
 
-https://github.com/heroku/heroku-buildpack-google-chrome.git
-
-
-
-### Heroku deploy:
-
-heroku ps:scale worker=1
-
-heroku ps:scale web=1
-
+Jika sudah, gunakan command berikut untuk menggunakan fitur-fiturnya
+- fc <judul> = akan menghasilkan hasil pengecekan dari judul yang dimasukkan
+- creator = untuk menunjukkan pencipta dari bot
+- help = untuk menunjukkan command yang tersedia
+```
